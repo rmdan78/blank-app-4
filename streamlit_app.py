@@ -1,7 +1,7 @@
 import cv2
 
 # Coba berbagai indeks jika kamera default tidak berfungsi
-camera_index = 0
+
 cap = cv2.VideoCapture(camera_index)
 while True:
     cap = cv2.VideoCapture(camera_index)
