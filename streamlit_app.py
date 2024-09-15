@@ -1,15 +1,10 @@
 import cv2
 
-cap = cv2.VideoCapture(0)
-cap.set(3, 640)
-cap.set(4, 480)
-
-while True:
-    ret, img= cap.read()
-    cv2.imshow('Webcam', img)
-
-    if cv2.waitKey(1) == ord('q'):
-        break
-
-cap.release()
-cv2.destroyAllWindows()
+# Menggunakan VideoCapture untuk mencoba berbagai indeks
+for i in range(10):  # Uji beberapa indeks
+    cap = cv2.VideoCapture(i)
+    if cap.isOpened():
+        print(f"Kamera ditemukan pada indeks {i}")
+        cap.release()
+    else:
+        print(f"Tidak ada kamera pada indeks {i}")
