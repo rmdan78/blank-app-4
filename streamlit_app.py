@@ -4,6 +4,7 @@ import cv2
 camera_index = 0
 cap = cv2.VideoCapture(camera_index)
 while True:
+    cap = cv2.VideoCapture(camera_index)
     if not cap.isOpened():
         print(f"Tidak dapat mengakses kamera dengan indeks {camera_index}")
         camera_index =+ 1
