@@ -58,7 +58,7 @@ menu = st.sidebar.selectbox("Pilih Menu", ["Train", "Start"])
 # Menu untuk training
 if menu == "Train":
     st.title("Pelatihan Model Deteksi Barang dengan YOLO")
-
+   
     # Upload gambar barang OK
     uploaded_ok = st.file_uploader("Upload gambar barang OK", type=['png', 'jpg', 'jpeg'], key="ok")
     if uploaded_ok is not None:
@@ -78,7 +78,7 @@ elif menu == "Start":
     st.title("Deteksi Objek Real-Time dengan Model YOLO")
 
     # Pilih model yang sudah dilatih
-    model_path = st.text_input("Masukkan path model YOLO yang telah dilatih", "yolov5/runs/train/exp/weights/best.pt")
+    model_path = st.text_input("Masukkan path model YOLO yang telah dilatih", "yolov5s.pt")
 
     # Tombol untuk memulai deteksi real-time
     if st.button("Mulai Deteksi"):
