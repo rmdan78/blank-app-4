@@ -1,11 +1,14 @@
 import cv2
 
-cap = cv2.VideoCapture(2)  # Ganti dengan indeks lain jika perlu
+# Coba berbagai indeks jika kamera default tidak berfungsi
+camera_index = 0
+cap = cv2.VideoCapture(camera_index)
 
 if not cap.isOpened():
-    print("Tidak dapat mengakses kamera")
+    print(f"Tidak dapat mengakses kamera dengan indeks {camera_index}")
+    camera_index =+ 1
 else:
-    print("Kamera terdeteksi, menampilkan video")
+    print(f"Kamera terdeteksi dengan indeks {camera_index}")
     while True:
         ret, frame = cap.read()
         if not ret:
@@ -14,5 +17,5 @@ else:
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
-cap.release()
-
+    cap.release()
+    cv2.destroyAllWindows()
