@@ -1,20 +1,15 @@
 import cv2
 
-# Coba berbagai indeks jika kamera default tidak berfungsi
-camera_index = 2
-cap = cv2.VideoCapture(camera_index)
+cap = cv2.VideoCapture(0)
+cap.set(3, 640)
+cap.set(4, 480)
 
-if not cap.isOpened():
-    print(f"Tidak dapat mengakses kamera dengan indeks {camera_index}")
-else:
-    print(f"Kamera terdeteksi dengan indeks {camera_index}")
-    while True:
-        ret, frame = cap.read()
-        if not ret:
-            break
-        cv2.imshow("Kamera", frame)
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
+while True:
+    ret, img= cap.read()
+    cv2.imshow('Webcam', img)
 
-    cap.release()
-    cv2.destroyAllWindows()
+    if cv2.waitKey(1) == ord('q'):
+        break
+
+cap.release()
+cv2.destroyAllWindows()
