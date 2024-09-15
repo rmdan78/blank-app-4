@@ -1,6 +1,6 @@
 import cv2
 
-cap = cv2.VideoCapture(0)  # Ganti dengan indeks lain jika perlu
+cap = cv2.VideoCapture(2)  # Ganti dengan indeks lain jika perlu
 
 if not cap.isOpened():
     print("Tidak dapat mengakses kamera")
