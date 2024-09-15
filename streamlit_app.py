@@ -115,4 +115,4 @@ elif menu == "Start":
             stframe.image(frame, channels="BGR")
 
         cap.release()
-        cv2.destroyAllWindows()
+        #cv2.destroyAllWindows()
