@@ -1,16 +1,20 @@
 import cv2
 
-# Jumlah maksimum indeks kamera yang ingin diperiksa
-max_camera_index = 10
+# Coba berbagai indeks jika kamera default tidak berfungsi
+camera_index = 0
+cap = cv2.VideoCapture(camera_index)
 
-def check_camera_indices(max_index):
-    for i in range(max_index):
-        cap = cv2.VideoCapture(i)
-        if cap.isOpened():
-            print(f"Kamera terdeteksi pada indeks {i}")
-            cap.release()  # Lepaskan sumber daya setelah memeriksa
-        else:
-            print(f"Tidak ada kamera pada indeks {i}")
+if not cap.isOpened():
+    print(f"Tidak dapat mengakses kamera dengan indeks {camera_index}")
+else:
+    print(f"Kamera terdeteksi dengan indeks {camera_index}")
+    while True:
+        ret, frame = cap.read()
+        if not ret:
+            break
+        cv2.imshow("Kamera", frame)
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
 
-check_camera_indices(max_camera_index)
-
+    cap.release()
+    cv2.destroyAllWindows()
