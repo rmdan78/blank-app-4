@@ -88,7 +88,7 @@ elif menu == "Start":
         model = YOLO(model_path)
 
         # Akses webcam
-        cap = cv2.VideoCapture(0)
+        cap = cv2.VideoCapture(1)
         stframe = st.empty()
 
         while True:
